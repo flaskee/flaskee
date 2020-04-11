@@ -8,9 +8,10 @@ import os
 from flask import Flask
 
 from flaskee.core.database import db
+from flaskee.core.schema import ma
 from flaskee.core.helpers import register_blueprints
-
 from flaskee.core.middleware import OverrideHTTPMethods
+from flaskee.core.model import initialize_db_models
 
 
 def create_app(package_name, package_path, settings_override=None,
@@ -18,15 +19,20 @@ def create_app(package_name, package_path, settings_override=None,
 
     app = Flask(package_name, instance_relative_config=True)
 
-    app.config.from_object('flaskee.core.settings')
+    app.config.from_object('flaskee.core.environment')
     app.config.from_pyfile('settings.cfg', silent=True)
     app.config.from_object(settings_override)
-
-    db.init_app(app)
-
+    
     register_blueprints(app, package_name, package_path)
 
     app.wsgi_app = OverrideHTTPMethods(app.wsgi_app)
+
+    app.app_context().push()
+
+    db.init_app(app)
+    ma.init_app(app)
+
+    initialize_db_models('flaskee.models')
 
     return app
 

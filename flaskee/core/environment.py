@@ -7,7 +7,7 @@ DEBUG = True
 SECRET_KEY = 'super-secret-key'
 
 SQLALCHEMY_TRACK_MODIFICATIONS=False
-SQLALCHEMY_DATABASE_URI = 'mysql://root@127.0.0.1:3306/flaskee'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@127.0.0.1:3306/flaskee'
 
 MAIL_DEFAULT_SENDER = ''
 MAIL_SERVER = ''
