@@ -1,5 +1,5 @@
 """
-Flaskee is an Open Source project for Microservices.
+The Flaskee is an Open Source project for Microservices.
 Develop By Nadeen Gamage | https://nadeengamage.com | nadeengamage@gmail.com
 """
 
