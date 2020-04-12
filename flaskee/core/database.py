@@ -16,7 +16,7 @@ class Database(object):
     
     # Load database models
     @staticmethod
-    def initialize_db_models(self, module):
+    def initialize_db_models(module):
 
         module_path = module
 

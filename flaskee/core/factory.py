@@ -31,7 +31,7 @@ def create_app(package_name, package_path, settings_override=None,
     db.init_app(app)
     ma.init_app(app)
 
-    Database.initialize_db_models('flaskee.models')
+    Database.initialize_db_models(module='flaskee.models')
 
     return app
 
