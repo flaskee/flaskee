@@ -7,11 +7,10 @@ import os
 
 from flask import Flask
 
-from flaskee.core.database import db
+from flaskee.core.database import db, Database
 from flaskee.core.schema import ma
 from flaskee.core.helpers import register_blueprints
 from flaskee.core.middleware import OverrideHTTPMethods
-from flaskee.core.model import initialize_db_models
 
 
 def create_app(package_name, package_path, settings_override=None,
@@ -32,7 +31,7 @@ def create_app(package_name, package_path, settings_override=None,
     db.init_app(app)
     ma.init_app(app)
 
-    initialize_db_models('flaskee.models')
+    Database.initialize_db_models('flaskee.models')
 
     return app
 
