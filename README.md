@@ -17,7 +17,7 @@ Required system requirements:
 ```
 1. Minimum memory - 2GB
 2. Processor      - Pentium 800MHz or equivalent at minimum
-3. Python 		  - 3.7 or above
+3. Python 	  - 3.7 or above
 ```
 
 ### Installing
