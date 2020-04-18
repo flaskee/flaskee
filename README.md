@@ -7,7 +7,7 @@ The FlaskEE is an open-source project based on the Flask web framework. The main
 Download the FlaskEE project using command prompt if you haven't yet:
 
 ```
-$ git clone https://github.com/nadeengamage/flaskee.git
+$ git clone https://github.com/flaskee/flaskee.git
 ```
 
 ### Prerequisites
