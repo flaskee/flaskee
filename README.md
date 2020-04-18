@@ -7,7 +7,7 @@ The FlaskEE is an open-source project based on the Flask web framework. The main
 Download the FlaskEE project using command prompt if you haven't yet:
 
 ```
-https://github.com/nadeengamage/flaskee.git
+$ git clone https://github.com/nadeengamage/flaskee.git
 ```
 
 ### Prerequisites
@@ -25,16 +25,40 @@ Required system requirements:
 1. At the command prompt, install required pip dependencies:
 
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 2. Start a development server executing the following command on prompt:
 
 ```
-sh serve.sh
+$ sh serve.sh
 ```
 
 3. Go to http://localhost:5000 and you can start development as service based.
+
+### How to Use
+
+
+1. Create your first REST API inside of the **flaskee/api** directory.
+
+Example: flaskee/api/users.py
+```
+from flask import Blueprint
+
+from flaskee.api import route
+
+bp = Blueprint('users', __name__, url_prefix='/users')
+
+@route(bp, '/', methods=['GET'])
+def users():
+    return ['Jhon', 'Deo']
+```
+
+2. Now execute the following command on the prompt and test the result:
+
+```
+$ curl http://localhost:5000/api/users
+```
 
 
 ## Authors
