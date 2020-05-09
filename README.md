@@ -58,7 +58,7 @@ def users():
 2. Now execute the following command on the prompt and test the result:
 
 ```
-$ curl http://localhost:5000/api/users
+$ curl http://localhost:5000/users
 ```
 
 
