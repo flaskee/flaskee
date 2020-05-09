@@ -42,7 +42,8 @@ $ sh serve.sh
 1. Create your first REST API inside of the **flaskee/api** directory.
 
 	Example: flaskee/api/users.py
-```
+
+```python
 from flask import Blueprint
 
 from flaskee.api import route
