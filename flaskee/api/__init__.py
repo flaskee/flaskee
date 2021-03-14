@@ -38,19 +38,23 @@ def route(bp, *args, **kwargs):
             if isinstance(rv, tuple):
                 sc = rv[1]
                 rv = rv[0]
-            return jsonify(dict(data=rv)), sc
+            return jsonify(rv), sc
         return f
 
     return decorator
 
+
 def error_formatter(message, error):
 	return dict(message=message, error=error, timestamp=datetime.now())
+
 
 def on_not_found_error(e):
     return jsonify(error_formatter(str(e), 'Not Found')), 404
 
+
 def on_method_not_allowed_error(e):
 	return jsonify(error_formatter(message=str(e), error='Method Not Allowed')), 405
+
 
 def on_internal_server_error(e):
 	return jsonify(error_formatter(message=str(e), error='Internal Server Error')), 500

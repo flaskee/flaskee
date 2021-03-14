@@ -9,6 +9,7 @@ from werkzeug.urls import url_decode
 class OverrideHTTPMethods(object):
     bodyless_methods = frozenset(['GET', 'HEAD', 'OPTIONS', 'DELETE'])
 
+
     def __init__(self, app, header_name=None,
                  querystring_param=None, allowed_methods=None):
         header_name = header_name or 'X-HTTP-METHOD-OVERRIDE'
@@ -19,15 +20,18 @@ class OverrideHTTPMethods(object):
         self.allowed_methods = frozenset(allowed_methods or
             ['GET', 'HEAD', 'POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS'])
 
+
     def _get_from_querystring(self, environ):
         if self.querystring_param in environ.get('QUERY_STRING', ''):
             args = url_decode(environ['QUERY_STRING'])
             return args.get(self.querystring_param)
         return None
 
+
     def _get_method_override(self, environ):
         return environ.get(self.header_name, None) or \
                self._get_from_querystring(environ) or ''
+
 
     def __call__(self, environ, start_response):
         method = self._get_method_override(environ).upper()

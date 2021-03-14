@@ -42,7 +42,8 @@ $ sh serve.sh
 1. Create your first REST API inside of the **flaskee/api** directory.
 
 	Example: flaskee/api/users.py
-```
+
+```python
 from flask import Blueprint
 
 from flaskee.api import route
@@ -57,7 +58,7 @@ def users():
 2. Now execute the following command on the prompt and test the result:
 
 ```
-$ curl http://localhost:5000/api/users
+$ curl http://localhost:5000/users
 ```
 
 
@@ -68,7 +69,7 @@ $ curl http://localhost:5000/api/users
 
 ## License
 
-This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
 
 ## To-Do Roadmap
 
